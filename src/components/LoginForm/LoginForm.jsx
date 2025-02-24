@@ -11,22 +11,11 @@ export default function LoginForm({ setNewUser }){
         password: '',
     })
 
-    // const handleClick = () => {
-    //     setNewUser(true);
-    // };
-
-    // const handleChange = (e) => {
-    //     setFormData({
-    //         ...formData, 
-    //         [e.target.name]: e.target.value
-    //     });
-    // }
-
     const handleSubmit = async (e) => {
         e.preventDefault();
 
         let res = await login(formData);
-        nav('/dashboard'); // what is this doing here? shouldn't it be contained???
+        nav('/home'); // what is this doing here? shouldn't it be contained???
     }
 
     return (

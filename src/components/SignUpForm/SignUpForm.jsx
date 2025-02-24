@@ -8,19 +8,12 @@ export default function SignUpForm({ setNewUser }){
     const { signUp } = useAuth();
     const [formData, setFormData] = useState({ name: '', email: '', password: '', password2: '' });
 
-    // const handleClick = () => {
-    //     setNewUser(false);
-    // };
-    
-    // const handleChange = (e) => {
-    //     setFormData({ ...formData, [e.target.name]: e.target.value });
-    // }
     
     const handleSubmit = async (e) => {
         e.preventDefault();
     
         let res = await signUp(formData);
-        nav('/dashboard'); // what is this doing here? shouldn't it be contained???
+        nav('/home'); // what is this doing here? shouldn't it be contained???
     }
 
     return(
