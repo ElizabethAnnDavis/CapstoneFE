@@ -1,27 +1,10 @@
 import { createContext, useContext, useMemo } from 'react';
 import { useCookies } from 'react-cookie';
-//import axios from 'axios';
 
 const AppContext = createContext();
 
-//export const UserProvider = ({ children }) => {}
 export default function UserProvider({ children }){
-    // would like some explanation about this line
-    // 1. object containing all cookies 
-    // 2. sets the value a cookie taking name, value, and path as args
-    // 3. a function to delete a cookie taking the name and options(optional) as args
     const [cookies, setCookies, removeCookie] = useCookies();
-
-    // const login = async(formData) => {
-    //     let res = await axios({
-    //         method: 'POST',
-    //         url: 'http://localhost:3000/api/auth',
-    //         data: formData,
-    //     });
-
-    //     // token is the cookie name, res.data.token is the value of the cookie
-    //     setCookies('token', res.data.token); // your token
-    // }
 
     async function login(formData){
         try{
@@ -39,16 +22,6 @@ export default function UserProvider({ children }){
             console.error(err.message);
         }
     }
-
-    // const signUp = async (formData) => {
-    //     let res = await axios({
-    //         method: 'POST',
-    //         url: 'http://localhost:3000/api/users',
-    //         data: formData,
-    //     });
-
-    //     setCookies('token', res.data.token);
-    // }
 
     async function signUp(formData){
         try{
