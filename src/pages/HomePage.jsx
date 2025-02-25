@@ -4,9 +4,9 @@ import apiData from '../data/apiData.js';
 import Image from '../components/Image/Image.jsx';
 import Navbar from '../components/Navbar/Navbar.jsx';
 
-export default function HomePage({ index, setIndex, userId }){
+export default function HomePage({ index, setIndex, userId, setFavId }){
     const navigate = useNavigate();
-    const [favId, setFavId] = useState(null);
+    //const [favId, setFavId] = useState(null);
 
     useEffect(() => {
         const interval = setInterval((() => (setIndex((prevIndex) => (prevIndex + 1) % apiData.length))), 5000);

@@ -1,10 +1,11 @@
-import { createContext, useContext, useMemo } from 'react';
+import { useState, createContext, useContext, useMemo } from 'react';
 import { useCookies } from 'react-cookie';
 
 const AppContext = createContext();
 
 export default function UserProvider({ children }){
     const [cookies, setCookies, removeCookie] = useCookies();
+    const [userId, setUserId] = useState(null);
 
     async function login(formData){
         try{
@@ -18,6 +19,7 @@ export default function UserProvider({ children }){
 
             const data = await response.json();
             setCookies('token', data.token);
+            setUserId(data.user_id);
         }catch(err){
             console.error(err.message);
         }
@@ -35,6 +37,7 @@ export default function UserProvider({ children }){
 
             const data = await response.json();
             setCookies('token', data.token);
+            setUserId(data.user_id);
         }catch(err){
             console.error(err.message);
         }
@@ -42,10 +45,11 @@ export default function UserProvider({ children }){
 
     function logout(){
         ['token'].forEach((obj) => removeCookie(obj));
+        setUserId(null);
     }
 
     // makes things more efficient
-    const value = useMemo(() => ({cookies, login, logout, signUp}), [cookies]);
+    const value = useMemo(() => ({ cookies, login, logout, signUp, userId, setUserId }), [cookies, userId]);
 
     return <AppContext.Provider value={value}>{children}</AppContext.Provider>;
 }

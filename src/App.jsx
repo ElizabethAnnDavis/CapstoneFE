@@ -10,6 +10,8 @@ import ProtectedRoutes from './components/ProtectedRoutes/ProtectedRoutes.jsx';
 
 export default function App() {
   const [index, setIndex] = useState(0);
+  //const [favId, setFavId] = useState(null);
+  const [userId, setUserId] = useState(null);
 
   return (
     <>

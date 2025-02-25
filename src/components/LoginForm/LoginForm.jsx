@@ -3,7 +3,7 @@ import { useNavigate } from 'react-router-dom';
 import { useAuth } from '../../context/Auth/UserProvider';
 import './LoginForm.css';
 
-export default function LoginForm({ setNewUser }){
+export default function LoginForm({ setUserId, setNewUser }){
     const nav = useNavigate();
     const { login } = useAuth();
     const [formData, setFormData] = useState({
@@ -15,7 +15,10 @@ export default function LoginForm({ setNewUser }){
         e.preventDefault();
 
         let res = await login(formData);
-        nav('/home'); // what is this doing here? shouldn't it be contained???
+        if (res.userId) {
+            setUserId(res.userId);
+            nav('/home');
+        }
     }
 
     return (
