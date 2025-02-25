@@ -1,3 +1,4 @@
+import { useState, useEffect } from 'react';
 import Navbar from '../../components/Navbar/Navbar';
 import ProfileBio from '../../components/ProfileBio/ProfileBio';
 import FavImgsContainer from '../../components/FavImgsContainer/FavImgsContainer';
@@ -7,30 +8,44 @@ import './ProfilePage.css';
 
 export default function ProfilePage(){
     const { cookies } = useAuth();
-    console.log("HERE");
-    const getProfileData = async() => {
-        try{
-            const response = await fetch(`http://localhost:3000/api/user/profile/`, {
-                method: 'GET',
-                headers: { 'x-auth-token': cookies.token }
-            });
-            console.log("after fetch");
+    const [profileInfo, setProfileInfo] = useState({ favs: {}, posts: [] });
+    const [loading, setLoading] = useState(true);
 
-            const data = await response.json();
-            console.log(data);
-        }catch(err){
-            console.error(err.messsage);
-        }
+    useEffect(() => {
+        const getProfileData = async() => {
+            try {
+                const response = await fetch('http://localhost:3000/api/user/profile/', {
+                    method: 'GET',
+                    headers: { 'x-auth-token': cookies.token },
+                });
+                console.log('after fetch');
+
+                const data = await response.json();
+                setProfileInfo({
+                    favs: data.favs,
+                    posts: data.posts,
+                });
+
+                setLoading(false);
+            } catch (err) {
+                console.error(err.message);
+                setLoading(false);
+            }
+        };
+        getProfileData();
+    }, []);
+
+    if (loading) {
+        return <div>Loading...</div>;
     }
-    getProfileData();
 
     return (
         <div>
             <Navbar />
             <div className='profileCont'>
                 <ProfileBio/>
-                <FavImgsContainer/>
-                <PostsSection/>
+                <FavImgsContainer favs={profileInfo.favs}/>
+                <PostsSection allPosts={profileInfo.posts}/>
             </div>
         </div>
     );

@@ -1,4 +1,10 @@
 .imgSection{
-    width:66vh;
-    outline: solid black;
+    /* width:66vh;
+    outline: solid black; */
+    display: block;
+}
+
+img{
+    width:31vw;
+    height: auto;
 }

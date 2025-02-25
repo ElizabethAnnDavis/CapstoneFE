@@ -1,7 +1,7 @@
 import './PostsSection.css';
 import { useState } from 'react';
 
-export default function PostsSection(){
+export default function PostsSection(allPosts){
     const [post, setPost] = useState("");
     const [posts, setPosts] = useState([]);
 
