@@ -10,17 +10,17 @@ import ProtectedRoutes from './components/ProtectedRoutes/ProtectedRoutes.jsx';
 
 export default function App() {
   const [index, setIndex] = useState(0);
-  //const [favId, setFavId] = useState(null);
+  const [favId, setFavId] = useState(null);
   const [userId, setUserId] = useState(null);
 
   return (
     <>
       <Routes>
-        <Route path='/' element={<LoginPage />}/>
+        <Route path='/' element={<LoginPage userId={userId} setUserId={setUserId}/>}/>
         <Route element={<ProtectedRoutes />}>
-          <Route path='/home' element={<HomePage index={index} setIndex={setIndex}/>}/>
-          <Route path='/details/:title' element={<DetailsPage index={index} setIndex={setIndex}/>}/>
-          <Route path='/profile' element={<ProfilePage />}/>
+          <Route path='/home' element={<HomePage index={index} setIndex={setIndex} userId={userId} setFavId={setFavId}/>}/>
+          <Route path='/details/:title' element={<DetailsPage index={index} setIndex={setIndex} userId={userId} favId={favId}/>}/>
+          <Route path='/profile' element={<ProfilePage userId={userId}/>}/>
         </Route>
         <Route path='*' element={<h1>WELCOME</h1>}/>
       </Routes>
