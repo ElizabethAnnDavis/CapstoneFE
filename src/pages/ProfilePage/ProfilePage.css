@@ -1,0 +1,6 @@
+.profileCont{
+    display: flex;
+    justify-content: space-around;
+    width: 88vw;
+    height: 77vh;
+}

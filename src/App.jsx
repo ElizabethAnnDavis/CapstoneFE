@@ -4,7 +4,7 @@ import './App.css';
 import LoginPage from './pages/LoginPage.jsx';
 import HomePage from './pages/HomePage.jsx';
 import DetailsPage from './pages/DetailsPage/DetailsPage.jsx';
-import ProfilePage from './pages/ProfilePage.jsx';
+import ProfilePage from './pages/ProfilePage/ProfilePage.jsx';
 import ProtectedRoutes from './components/ProtectedRoutes/ProtectedRoutes.jsx';
 
 

@@ -1,4 +1,4 @@
-//import './PostsSection.css';
+import './PostsSection.css';
 import { useState } from 'react';
 
 export default function PostsSection(){
@@ -13,7 +13,7 @@ export default function PostsSection(){
     };
 
     return(
-        <div>
+        <div className='postSection'>
             <h1>Posts</h1>
             <input type='text' value={post} onChange={(e) => setPost(e.target.value)}/>
             <button onClick={handleAdd}>ADD</button>

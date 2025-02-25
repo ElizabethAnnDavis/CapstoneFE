@@ -1,5 +1,10 @@
+import './ProfileBio.css';
+
 export default function ProfileBio(){
     return(
-        <div><h1>Bio</h1></div>
+        <div className="userSection">
+            <h1>HELLO USER :)</h1>
+            <h2>welcome to your profile page!</h2>
+        </div>
     );
 }
