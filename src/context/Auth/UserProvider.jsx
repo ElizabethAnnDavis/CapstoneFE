@@ -9,17 +9,28 @@ export default function UserProvider({ children }){
 
     async function login(formData){
         try{
-            const response = await fetch('http://localhost:3000/api/users', {
+            const response = await fetch('http://localhost:3000/api/auth', {
                 method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json',
-                },
+                headers: {'Content-Type': 'application/json'},
                 body: JSON.stringify(formData),
             });
 
             const data = await response.json();
-            setCookies('token', data.token);
-            //setUserId(data.user_id);
+            
+            //console.log('Response data:', data);
+
+            if (data.token) {
+                setCookies('token', data.token);
+            }
+
+            // console.log('User ID from data:', data.user_id);
+            // if (data.user_id !== undefined) {
+            //     setUserId(data.user_id);
+            //     console.log(userId);
+            // }
+        
+            // console.log('Stored User ID:', userId);
+            //console.log('User ID from data:', data.user_id);
         }catch(err){
             console.error(err.message);
         }
@@ -29,15 +40,23 @@ export default function UserProvider({ children }){
         try{
             const response = await fetch('http://localhost:3000/api/users', {
                 method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json',
-                },
+                headers: {'Content-Type': 'application/json'},
                 body: JSON.stringify(formData),
             });
 
             const data = await response.json();
-            setCookies('token', data.token);
-            //setUserId(data.user_id);
+
+            //console.log('Response data:', data);
+
+            if (data.token) {
+                setCookies('token', data.token);
+            }
+            // if (data.user_id !== undefined) {
+            //     setUserId(data.user_id);
+            // }
+        
+            // console.log('Stored User ID:', userId);
+            // console.log('User ID from data:', data.user_id);
         }catch(err){
             console.error(err.message);
         }
@@ -49,7 +68,7 @@ export default function UserProvider({ children }){
     }
 
     // makes things more efficient
-    const value = useMemo(() => ({ cookies, login, logout, signUp}), [cookies]); //userId, setUserId }), [cookies, userId]);
+    const value = useMemo(() => ({ cookies, login, logout, signUp}), [cookies]);
 
     return <AppContext.Provider value={value}>{children}</AppContext.Provider>;
 }

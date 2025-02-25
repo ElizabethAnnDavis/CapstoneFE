@@ -1,34 +1,45 @@
 //import './CommentsSection.css';
 import { useState, useEffect } from 'react';
+import { useAuth } from '../../context/Auth/UserProvider';
+import { useParams } from 'react-router-dom';
 
-export default function CommentsSection({ userId, favId }){
+
+export default function CommentsSection(){
     const [comment, setComment] = useState("");
     const [thisComment, setThisComment] = useState("");
+    const { cookies } = useAuth();
+    const { favId } = useParams();
+
 
     useEffect(() => {
         const getComment = async () => {
             try{
-                const response = await fetch(`http://localhost:3000/${userId}/fav/${favId}`);
+                const response = await fetch(`http://localhost:3000/api/user/profile/fav/${favId}`);
                 const data = await response.json();
-                setThisComment(data.comments || "");
+                setThisComment(data || "");
             }catch(err){
                 console.log(err.message);
             }
             getComment();
         }
-    }, [userId, favId])
+    }, [favId])
 
     const handleAdd = async () => {
+        console.log('favId: ', favId)
         if(comment.trim() !== ""){
             try{
-                const response = await fetch(`http://localhost:3000/${userId}/fav/${favId}`, {
+                const response = await fetch(`http://localhost:3000/api/user/profile/fav/${favId}`, {
                     method: 'PATCH',
-                    headers: {'Content-Type': 'application/json'},
+                    headers: {
+                        'x-auth-token': cookies.token,
+                        'Content-Type': 'application/json'
+                    },
                     body: JSON.stringify({comments: comment})
                 });
 
                 const data = await response.json();
-                setThisComment(data.userProfile.favs.find(f => f.fav_id === favId).comments);
+                console.log(data);
+                setThisComment(data);
                 setComment("");
             }catch(err){
                 console.log(err.message);
@@ -38,14 +49,17 @@ export default function CommentsSection({ userId, favId }){
 
     const handleDelete = async () => {
         try{
-            const response = await fetch(`http://localhost:3000/${userId}/fav/${favId}`, {
+            const response = await fetch(`http://localhost:3000/api/user/profile/fav/${favId}`, {
                 method: 'PATCH',
-                headers: {'Content-Type': 'application/json'},
+                headers: {
+                    'x-auth-token': cookies.token,
+                    'Content-Type': 'application/json'
+                },
                 body: JSON.stringify({comments: ""})
             });
 
             const data = await response.json();
-            setThisComment(data.userProfile.favs.find(f => f.fav_id === favId).comments);
+            setThisComment("");
             setComment("");
         }catch(err){
             console.log(err.message);

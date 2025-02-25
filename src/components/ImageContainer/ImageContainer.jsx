@@ -3,7 +3,7 @@ import Caption from '../Caption/Caption.jsx';
 import Image from '../Image/Image.jsx';
 import Title from '../Title/Title.jsx';
 
-export default function ImageContainer({ index, setIndex }){
+export default function ImageContainer({ index }){
     const image = apiData[index];
     //console.log(apiData);
 

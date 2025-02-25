@@ -6,10 +6,10 @@ import Navbar from '../../components/Navbar/Navbar.jsx';
 import ImageContainer from '../../components/ImageContainer/ImageContainer.jsx'
 import CommentsSection from '../../components/CommentsSection/CommentsSection.jsx';
 
-export default function DetailsPage({index, setIndex}){
+export default function DetailsPage({index, setIndex, favId}){
     const { title } = useParams();
     //const imageIndex = apiData.findIndex((image) => image.title === title);
-    console.log(index);
+    //console.log(index);
 
     // useEffect(() => {
     //     setIndex(imageIndex);
