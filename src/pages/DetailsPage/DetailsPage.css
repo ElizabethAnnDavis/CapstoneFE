@@ -1,0 +1,4 @@
+.detailsCont{
+    display: flex;
+    justify-content: space-around;
+}
