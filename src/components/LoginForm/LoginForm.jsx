@@ -15,10 +15,11 @@ export default function LoginForm({ setUserId, setNewUser }){
         e.preventDefault();
 
         let res = await login(formData);
-        if (res.userId) {
-            setUserId(res.userId);
-            nav('/home');
-        }
+        // if (res.userId) {
+        //     setUserId(res.userId);
+        //     nav('/home');
+        // }
+        nav('/home');
     }
 
     return (

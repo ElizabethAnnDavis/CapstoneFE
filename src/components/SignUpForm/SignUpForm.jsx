@@ -13,10 +13,11 @@ export default function SignUpForm({ setUserId, setNewUser }){
         e.preventDefault();
     
         let res = await signUp(formData);
-        if (res.userId) {
-            setUserId(res.userId);
-            nav('/home');
-        }
+        // if (res.userId) {
+        //     setUserId(res.userId);
+        //     nav('/home');
+        // }
+        nav('/home');
     }
 
     return(
