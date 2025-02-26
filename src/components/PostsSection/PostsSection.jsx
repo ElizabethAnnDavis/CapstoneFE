@@ -1,16 +1,33 @@
 import './PostsSection.css';
 import { useState } from 'react';
+import { useAuth } from '../../context/Auth/UserProvider';
 
 export default function PostsSection(allPosts){
+    const { cookies } = useAuth();
     const [post, setPost] = useState("");
-    const [posts, setPosts] = useState([]);
+    const [posts, setPosts] = useState(allPosts);
 
-    const handleAdd = () => {
+    const handleAdd = async () => {
         if(post.trim() !== ""){
-            setPosts([...posts, post]);
-            setPost("");
+            try{
+                const response = await fetch(`http://localhost:3000/api/user/profile/posts`, {
+                    method: 'PATCH',
+                    headers: {
+                        'x-auth-token': cookies.token,
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify({posts: post})
+                });
+
+                const data = await response.json();
+                console.log(data);
+                setPosts([...posts, post]);
+                setPost("");
+            }catch(err){
+                console.log(err.message);
+            }
         }
-    };
+    }
 
     return(
         <div className='postSection'>

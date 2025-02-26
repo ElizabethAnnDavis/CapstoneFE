@@ -8,8 +8,9 @@ import './ProfilePage.css';
 
 export default function ProfilePage(){
     const { cookies } = useAuth();
-    const [profileInfo, setProfileInfo] = useState({ favs: {}, posts: [] });
+    const [profileInfo, setProfileInfo] = useState({ favs: [], posts: [] });
     const [loading, setLoading] = useState(true);
+    const [favs, setFavs] = useState([]);
 
     useEffect(() => {
         const getProfileData = async() => {
@@ -18,7 +19,6 @@ export default function ProfilePage(){
                     method: 'GET',
                     headers: { 'x-auth-token': cookies.token },
                 });
-                console.log('after fetch');
 
                 const data = await response.json();
                 setProfileInfo({
@@ -44,7 +44,7 @@ export default function ProfilePage(){
             <Navbar />
             <div className='profileCont'>
                 <ProfileBio/>
-                <FavImgsContainer favs={profileInfo.favs}/>
+                <FavImgsContainer favs={profileInfo.favs} setFavs={setFavs}/>
                 <PostsSection allPosts={profileInfo.posts}/>
             </div>
         </div>

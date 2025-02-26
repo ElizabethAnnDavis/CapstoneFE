@@ -8,3 +8,8 @@ img{
     width:31vw;
     height: auto;
 }
+
+.imgFooter{
+    display:flex;
+    justify-content: space-between;
+}
