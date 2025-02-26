@@ -25,7 +25,7 @@ export default function ProfilePage(){
                     favs: data.favs,
                     posts: data.posts,
                 });
-
+                setFavs(data.favs)
                 setLoading(false);
             } catch (err) {
                 console.error(err.message);
@@ -44,7 +44,7 @@ export default function ProfilePage(){
             <Navbar />
             <div className='profileCont'>
                 <ProfileBio/>
-                <FavImgsContainer favs={profileInfo.favs} setFavs={setFavs}/>
+                <FavImgsContainer favs={favs} setFavs={setFavs} />
                 <PostsSection allPosts={profileInfo.posts}/>
             </div>
         </div>

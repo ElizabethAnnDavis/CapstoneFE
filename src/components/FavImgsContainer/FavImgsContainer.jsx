@@ -20,7 +20,7 @@ export default function FavImgsContainer({ favs, setFavs }) {
             }
         }
         getUpdatedFavs();
-    }, [favs, setFavs]);
+    }, []);
 
     const handleDelete = async (favId) => {
         try{
@@ -33,7 +33,13 @@ export default function FavImgsContainer({ favs, setFavs }) {
             });
     
             if (response.ok) {
-                setFavs(favs.filter(fav => fav.fav_id !== favId));
+                let newFav = favs.filter(fav => {
+                    console.log(fav);
+                    return fav.fav_id !== favId;
+                })
+                console.log(newFav);
+                console.log(favs);
+                setFavs(newFav);
             }
         }catch(err){
             console.log(err.message);

@@ -37,7 +37,6 @@ export default function HomePage({ index, setIndex, userId, setFavId }){
 
             const data = await response.json();
             console.log(data);
-            //const newFavId = data.userProfile.favs.find((fav) => fav.title === image.title).fav_id;
             const newFavId = data.favs.find((fav) => fav.title === image.title)?.fav_id;
             console.log(newFavId);
 
