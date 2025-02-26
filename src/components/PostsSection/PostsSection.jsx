@@ -2,15 +2,17 @@ import './PostsSection.css';
 import { useState } from 'react';
 import { useAuth } from '../../context/Auth/UserProvider';
 
-export default function PostsSection(allPosts){
+export default function PostsSection({allPosts}){
     const { cookies } = useAuth();
     const [post, setPost] = useState("");
     const [posts, setPosts] = useState(allPosts);
 
     const handleAdd = async () => {
         if(post.trim() !== ""){
+            console.log('before try');
             try{
-                const response = await fetch(`http://localhost:3000/api/user/profile/posts`, {
+                console.log('before fetch');
+                const response = await fetch(`http://localhost:3000/api/user/profile/post`, {
                     method: 'PATCH',
                     headers: {
                         'x-auth-token': cookies.token,
@@ -18,10 +20,11 @@ export default function PostsSection(allPosts){
                     },
                     body: JSON.stringify({posts: post})
                 });
+                console.log('after fetch');
 
                 const data = await response.json();
                 console.log(data);
-                setPosts([...posts, post]);
+                setPosts((prevPosts) => [...prevPosts, post]);
                 setPost("");
             }catch(err){
                 console.log(err.message);
