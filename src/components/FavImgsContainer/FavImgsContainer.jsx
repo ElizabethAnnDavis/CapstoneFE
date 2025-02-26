@@ -34,8 +34,6 @@ export default function FavImgsContainer({ favs, setFavs }) {
     
             if (response.ok) {
                 setFavs(favs.filter(fav => fav.fav_id !== favId));
-            } else {
-                console.error("Failed to delete the favorite image.");
             }
         }catch(err){
             console.log(err.message);
@@ -47,12 +45,12 @@ export default function FavImgsContainer({ favs, setFavs }) {
     return(
         <div className='imgSection'>
             {favs.length > 0 ? (
-                favs.map((fav) => (
-                    <div className="favImg">
+                favs.map((fav, i) => (
+                    <div className="favImg" key={i}>
                         <img src={fav.img} alt={fav.title} />
                         <div className='imgFooter'>
                             <p>{fav.title}</p>
-                            <button onClick={() => handleDelete(fav.fav_id)}>Delete</button>
+                            <button className='dltBtn' onClick={() => handleDelete(fav.fav_id)}>X</button>
                         </div>
                     </div>
                 ))

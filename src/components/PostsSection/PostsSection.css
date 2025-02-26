@@ -2,3 +2,16 @@
     width: 44vh;
     outline: solid black;
 }
+
+.eachPost{
+    display:flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+}
+
+.dltBtn{
+    font-size: 22px;
+    padding: 0 5px;
+    background-color: #c8b5c1;
+}

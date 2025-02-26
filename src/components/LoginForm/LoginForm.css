@@ -10,8 +10,10 @@ form{
     
 input{
     padding: 0.5rem;
+    border-radius: 8px;
 }
 
 button {
     width: fit-content;
+    margin-left: 2px;
 }

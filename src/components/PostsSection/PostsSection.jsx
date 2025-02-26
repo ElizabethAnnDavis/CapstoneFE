@@ -5,13 +5,26 @@ import { useAuth } from '../../context/Auth/UserProvider';
 export default function PostsSection({allPosts}){
     const { cookies } = useAuth();
     const [post, setPost] = useState("");
-    const [posts, setPosts] = useState(allPosts);
+    const [posts, setPosts] = useState(allPosts);//[]);
+
+    console.log(posts)
+
+    // useEffect(() => {
+    //         const getPosts = async () => {
+    //             try{
+    //                 const response = await fetch(`http://localhost:3000/api/user/profile/post`);
+    //                 const data = await response.json();
+    //                 setPosts(data);
+    //             }catch(err){
+    //                 console.log(err.message);
+    //             }
+    //             getPosts();
+    //         }
+    //     }, [])
 
     const handleAdd = async () => {
         if(post.trim() !== ""){
-            console.log('before try');
             try{
-                console.log('before fetch');
                 const response = await fetch(`http://localhost:3000/api/user/profile/post`, {
                     method: 'PATCH',
                     headers: {
@@ -20,15 +33,35 @@ export default function PostsSection({allPosts}){
                     },
                     body: JSON.stringify({posts: post})
                 });
-                console.log('after fetch');
 
                 const data = await response.json();
                 console.log(data);
-                setPosts((prevPosts) => [...prevPosts, post]);
+                setPosts((prevPosts) => [...prevPosts, data]);
                 setPost("");
             }catch(err){
                 console.log(err.message);
             }
+        }
+    }
+
+    const handleDelete = async(postId) => {
+        console.log(postId);
+        try{
+            console.log('before fetch');
+            const response = await fetch(`http://localhost:3000/api/user/profile/post/${postId}`, {
+                method: 'DELETE',
+                headers: {
+                    'x-auth-token': cookies.token,
+                    'Content-Type': 'application/json'
+                }
+            });
+            console.log('after fetch');
+
+            if (response.ok) {
+                setPosts(posts.filter(p => p.post_id !== postId));
+            }
+        }catch(err){
+            console.log(err.message);
         }
     }
 
@@ -40,7 +73,10 @@ export default function PostsSection({allPosts}){
             <div>
                 {posts.length > 0 ? (
                     posts.map((post, i) => (
-                        <div key={i}><p>{post}</p></div>
+                        <div key={i}  className='eachPost'>
+                            <p>{post.post}</p>
+                            <button className='dltBtn' onClick={() => handleDelete(post.post_id)}>X</button>
+                        </div>
                     ))
                 ):(
                     <p>Add your posts here</p>
