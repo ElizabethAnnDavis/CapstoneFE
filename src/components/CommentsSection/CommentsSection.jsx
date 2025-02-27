@@ -14,7 +14,7 @@ export default function CommentsSection(){
     useEffect(() => {
         const getComment = async () => {
             try{
-                const response = await fetch(`http://localhost:3000/api/user/profile/fav/${favId}`);
+                const response = await fetch(`https://melikey.onrender.com/api/user/profile/fav/${favId}`);
                 const data = await response.json();
                 setThisComment(data || "");
             }catch(err){
@@ -28,7 +28,7 @@ export default function CommentsSection(){
         console.log('favId: ', favId)
         if(comment.trim() !== ""){
             try{
-                const response = await fetch(`http://localhost:3000/api/user/profile/fav/${favId}`, {
+                const response = await fetch(`https://melikey.onrender.com/api/user/profile/fav/${favId}`, {
                     method: 'PATCH',
                     headers: {
                         'x-auth-token': cookies.token,
@@ -49,7 +49,7 @@ export default function CommentsSection(){
 
     const handleDelete = async () => {
         try{
-            const response = await fetch(`http://localhost:3000/api/user/profile/fav/${favId}`, {
+            const response = await fetch(`https://melikey.onrender.com/api/user/profile/fav/${favId}`, {
                 method: 'PATCH',
                 headers: {
                     'x-auth-token': cookies.token,

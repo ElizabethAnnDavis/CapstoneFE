@@ -12,7 +12,7 @@ export default function PostsSection({allPosts}){
     // useEffect(() => {
     //         const getPosts = async () => {
     //             try{
-    //                 const response = await fetch(`http://localhost:3000/api/user/profile/post`);
+    //                 const response = await fetch(`https://melikey.onrender.com/api/user/profile/post`);
     //                 const data = await response.json();
     //                 setPosts(data);
     //             }catch(err){
@@ -25,7 +25,7 @@ export default function PostsSection({allPosts}){
     const handleAdd = async () => {
         if(post.trim() !== ""){
             try{
-                const response = await fetch(`http://localhost:3000/api/user/profile/post`, {
+                const response = await fetch(`https://melikey.onrender.com/api/user/profile/post`, {
                     method: 'PATCH',
                     headers: {
                         'x-auth-token': cookies.token,
@@ -48,7 +48,7 @@ export default function PostsSection({allPosts}){
         console.log(postId);
         try{
             console.log('before fetch');
-            const response = await fetch(`http://localhost:3000/api/user/profile/post/${postId}`, {
+            const response = await fetch(`https://melikey.onrender.com/api/user/profile/post/${postId}`, {
                 method: 'DELETE',
                 headers: {
                     'x-auth-token': cookies.token,

@@ -8,7 +8,7 @@ export default function FavImgsContainer({ favs, setFavs }) {
     useEffect(() => {
         const getUpdatedFavs = async() => {
             try{
-                const response = await fetch('http://localhost:3000/api/user/profile/', {
+                const response = await fetch('https://melikey.onrender.com/api/user/profile/', {
                     method: 'GET',
                     headers: { 'x-auth-token': cookies.token },
                 });
@@ -24,7 +24,7 @@ export default function FavImgsContainer({ favs, setFavs }) {
 
     const handleDelete = async (favId) => {
         try{
-            const response = await fetch(`http://localhost:3000/api/user/profile/fav/${favId}`, {
+            const response = await fetch(`https://melikey.onrender.com/api/user/profile/fav/${favId}`, {
                 method: 'DELETE',
                 headers: {
                     'x-auth-token': cookies.token,

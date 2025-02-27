@@ -9,7 +9,7 @@ export default function UserProvider({ children }){
 
     async function login(formData){
         try{
-            const response = await fetch('http://localhost:3000/api/auth', {
+            const response = await fetch('https://melikey.onrender.com/api/auth', {
                 method: 'POST',
                 headers: {'Content-Type': 'application/json'},
                 body: JSON.stringify(formData),
@@ -38,7 +38,7 @@ export default function UserProvider({ children }){
 
     async function signUp(formData){
         try{
-            const response = await fetch('http://localhost:3000/api/users', {
+            const response = await fetch('https://melikey.onrender.com/api/users', {
                 method: 'POST',
                 headers: {'Content-Type': 'application/json'},
                 body: JSON.stringify(formData),

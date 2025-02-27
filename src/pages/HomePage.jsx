@@ -21,7 +21,7 @@ export default function HomePage({ index, setIndex, userId, setFavId }){
 
     const handleClick = async () => {
         try{
-            const response = await fetch(`http://localhost:3000/api/user/profile/fav`, {
+            const response = await fetch(`https://melikey.onrender.com/api/user/profile/fav`, {
                 method: 'PATCH',
                 headers: {
                     'x-auth-token': cookies.token,
