@@ -53,11 +53,11 @@ export default function FavImgsContainer({ favs, setFavs }) {
             {favs.length > 0 ? (
                 favs.map((fav, i) => (
                     <div className="favImg" key={i}>
-                        <img src={fav.img} alt={fav.title} />
                         <div className='imgFooter'>
                             <p>{fav.title}</p>
                             <button className='dltBtn' onClick={() => handleDelete(fav.fav_id)}>X</button>
                         </div>
+                        <img src={fav.img} alt={fav.title} />
                     </div>
                 ))
             ) : (

@@ -1,8 +1,82 @@
 # Capstone - Frontend: React Web Application ✔
 
 
-[Backend](https://github.com/ElizabethAnnDavis/CapstoneBE)
+This code is the frontend of this web app. It runs in tandium with the [Backend](https://github.com/ElizabethAnnDavis/CapstoneBE).
 
+
+## Technologies
+
+- **Vite:** Vite is a build tool for JavaScript that enables developers to build web applications more quickly and efficiently.
+- **React:** React is a JavaScript library used for building user interfaces, especially for single-page applications where content updates dynamically without the need for full page reloads. It enables developers to create reusable UI components, manage application state effectively, and render DOM changes efficiently.
+- **JavaScript:** JavaScript is a multi-paradigm, dynamic language with types and operators, standard built-in objects, and methods.
+- **CSS3:** Cascading Style Sheets (CSS) is a stylesheet language that defines the presentation of a document written in HTML
+- **Fetch API:** The Fetch API is a JavaScript interface that allows you to send requests to servers and handle their responses.
+
+
+## Approach
+
+- **Seperation of Concerns:** Code broken apart in to many files, each containing small working pieces which are connected together to form the final product.
+
+
+## Features
+
+- **Multiple Pages:** This web app consists on four seperate pages of interactive content
+- **Full CRUD operations:** This app allows for a user to interact with the `MongoDB` database to preform create, read, update, and delete actions.
+- **Image Carousel:** The homepage features a rotating carousel with images that users can click to add to their favorites.
+
+
+## Instructions
+
+- **Clone Repo:** clone [this repo](https://github.com/ElizabethAnnDavis/CapstoneFE)
+- **Store Data:** in a `.env` file, create a variables as followes: 
+- **Necessary Installs:** run `npm install`, `npm install react`, `npm install react-cookie`, `npm install react-dom`, `npm install react-router-dom`
+- **Run Program:** run `npm run dev` to launch this web app
+**The [backend](https://github.com/ElizabethAnnDavis/CapstoneBE) code is require**
+
+
+
+## Files
+
+- **App.jsx:** 
+
+- **components:** 
+- **Caption** 
+- **CommentsSection** 
+- **FavImgs** 
+- **FavImgsContainer** 
+- **Image** 
+- **ImageContainer** 
+- **LoginForm** 
+- **LogoutBtn** 
+- **Navbar** 
+- **PostsSection** 
+- **ProfileBio** 
+- **ProtectedRoutes** 
+- **SignUpForm** 
+- **Title** 
+
+- **context:** Auth AppProvider.jsx
+- **Auth:** UserProvider.jsx
+- **UserProvider.jsx:** 
+- **AppProvider.jsx:** 
+
+- **data:** apiData.js
+- **apiData.js:** 
+
+- **pages:** 
+- **DetailsPage:** 
+- **DetailsPage.css:** 
+- **DetailsPage.jsx:** 
+- **ProfilePage:** 
+- **ProfilePage.css:** 
+- **ProfilePage.jsx:** 
+- **HomePage.jsx:** 
+- **LoginPage.jsx:** 
+
+
+## Credits
+
+Thanks to **Dylan Comeau** for providing the basis for the authorization code used in the project.
 
 
 

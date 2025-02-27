@@ -9,6 +9,13 @@ img{
     height: auto;
 }
 
+.favImg{
+    /* border: solid 1px rgb(193, 170, 186); */
+    border-bottom: solid 1px rgb(193, 170, 186);
+    background-color: rgb(208, 190, 203);
+    padding: 0 5px;
+}
+
 .imgFooter{
     display:flex;
     justify-content: center;
