@@ -150,6 +150,6 @@ Thanks to **Dylan Comeau** for providing the basis for the authorization code us
 **(6%) Extra Credit**
 *  ✔   2%  --> Include at least one form of user authentication/authorization within the application.
 *    
-*  -   1%  --> Deploy your project.
+*  ✔   1%  --> Deploy your project.
 *    
 *  -   3%  --> Build your application primarily with TypeScript.
