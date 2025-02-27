@@ -6,16 +6,9 @@ import Navbar from '../../components/Navbar/Navbar.jsx';
 import ImageContainer from '../../components/ImageContainer/ImageContainer.jsx'
 import CommentsSection from '../../components/CommentsSection/CommentsSection.jsx';
 
+// displays the details of img that now in favs
 export default function DetailsPage({index, setIndex, favId}){
     const { title } = useParams();
-    //const imageIndex = apiData.findIndex((image) => image.title === title);
-    //console.log(index);
-
-    // useEffect(() => {
-    //     setIndex(imageIndex);
-    //     // localStorage.setItem('imageIndex', imageIndex)
-    // }, [imageIndex, setIndex]);
-
     return (
         <div>
             <Navbar />

@@ -3,6 +3,7 @@ import { useNavigate } from 'react-router-dom';
 import { useAuth } from '../../context/Auth/UserProvider';
 import './LoginForm.css';
 
+// login an existing user
 export default function LoginForm({ setUserId, setNewUser }){
     const nav = useNavigate();
     const { login } = useAuth();

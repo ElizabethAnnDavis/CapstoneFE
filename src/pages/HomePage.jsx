@@ -5,10 +5,10 @@ import apiData from '../data/apiData.js';
 import Image from '../components/Image/Image.jsx';
 import Navbar from '../components/Navbar/Navbar.jsx';
 
+// home page, holds clickable images
 export default function HomePage({ index, setIndex, userId, setFavId }){
     const navigate = useNavigate();
     const { cookies } = useAuth();
-    //const [favId, setFavId] = useState(null);
 
     useEffect(() => {
         const interval = setInterval((() => (setIndex((prevIndex) => (prevIndex + 1) % apiData.length))), 5000);
@@ -17,7 +17,6 @@ export default function HomePage({ index, setIndex, userId, setFavId }){
     }, [])
 
     const image = apiData[index >= 0 && index < apiData.length ? index : 0];
-    //console.log(image);
 
     const handleClick = async () => {
         try{
@@ -36,13 +35,10 @@ export default function HomePage({ index, setIndex, userId, setFavId }){
             });
 
             const data = await response.json();
-            console.log(data);
             const newFavId = data.favs.find((fav) => fav.title === image.title)?.fav_id;
-            console.log(newFavId);
 
             if (newFavId) {
                 setFavId(newFavId);
-                console.log("Favorite added with ID:", newFavId);
                 navigate(`/details/${newFavId}`);
             } else {
                 console.error('Failed to add favorite');

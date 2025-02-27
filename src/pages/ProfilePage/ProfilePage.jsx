@@ -6,6 +6,7 @@ import PostsSection from '../../components/PostsSection/PostsSection';
 import { useAuth } from '../../context/Auth/UserProvider';
 import './ProfilePage.css';
 
+// profile page, gets/handles profile data
 export default function ProfilePage(){
     const { cookies } = useAuth();
     const [profileInfo, setProfileInfo] = useState({ favs: [], posts: [] });

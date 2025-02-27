@@ -1,5 +1,6 @@
 import './ProfileBio.css';
 
+// returns default bio section
 export default function ProfileBio(){
     return(
         <div className="userSection">

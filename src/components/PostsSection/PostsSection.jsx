@@ -2,25 +2,13 @@ import './PostsSection.css';
 import { useState } from 'react';
 import { useAuth } from '../../context/Auth/UserProvider';
 
+// add, edit, and delete posts
 export default function PostsSection({allPosts}){
     const { cookies } = useAuth();
     const [post, setPost] = useState("");
-    const [posts, setPosts] = useState(allPosts);//[]);
+    const [posts, setPosts] = useState(allPosts);
 
     console.log(posts)
-
-    // useEffect(() => {
-    //         const getPosts = async () => {
-    //             try{
-    //                 const response = await fetch(`https://melikey.onrender.com/api/user/profile/post`);
-    //                 const data = await response.json();
-    //                 setPosts(data);
-    //             }catch(err){
-    //                 console.log(err.message);
-    //             }
-    //             getPosts();
-    //         }
-    //     }, [])
 
     const handleAdd = async () => {
         if(post.trim() !== ""){

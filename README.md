@@ -1,4 +1,4 @@
-# Capstone - Frontend: React Web Application ✔
+# Capstone - Frontend: React Web Application [MeLikeey](https://melikeey.onrender.com) ✔
 
 
 This code is the frontend of this web app. It runs in tandium with the [Backend](https://github.com/ElizabethAnnDavis/CapstoneBE).
@@ -31,7 +31,7 @@ This code is the frontend of this web app. It runs in tandium with the [Backend]
 - **Store Data:** in a `.env` file, create a variables as followes: 
 - **Necessary Installs:** run `npm install`, `npm install react`, `npm install react-cookie`, `npm install react-dom`, `npm install react-router-dom`
 - **Run Program:** run `npm run dev` to launch this web app
-**The [backend](https://github.com/ElizabethAnnDavis/CapstoneBE) code is require**
+- **The [backend](https://github.com/ElizabethAnnDavis/CapstoneBE) code is require**
 
 
 

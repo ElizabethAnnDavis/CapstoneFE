@@ -2,6 +2,7 @@ import './FavImgsContainer.css';
 import { useState, useEffect } from 'react';
 import { useAuth } from '../../context/Auth/UserProvider';
 
+// displays favs on profile, allows for deletion
 export default function FavImgsContainer({ favs, setFavs }) {
     const { cookies } = useAuth();
 
@@ -34,11 +35,8 @@ export default function FavImgsContainer({ favs, setFavs }) {
     
             if (response.ok) {
                 let newFav = favs.filter(fav => {
-                    console.log(fav);
                     return fav.fav_id !== favId;
                 })
-                console.log(newFav);
-                console.log(favs);
                 setFavs(newFav);
             }
         }catch(err){

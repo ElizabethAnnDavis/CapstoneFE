@@ -3,6 +3,7 @@ import { useNavigate } from 'react-router-dom';
 import { useAuth } from '../../context/Auth/UserProvider';
 import './SignUpForm.css';
 
+// allows new user to sign up
 export default function SignUpForm({ setUserId, setNewUser }){
     const nav = useNavigate();
     const { signUp } = useAuth();

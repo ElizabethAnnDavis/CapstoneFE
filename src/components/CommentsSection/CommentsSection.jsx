@@ -3,7 +3,7 @@ import { useState, useEffect } from 'react';
 import { useAuth } from '../../context/Auth/UserProvider';
 import { useParams } from 'react-router-dom';
 
-
+// allows for the creation and deletion of comments on fav images
 export default function CommentsSection(){
     const [comment, setComment] = useState("");
     const [thisComment, setThisComment] = useState("");
