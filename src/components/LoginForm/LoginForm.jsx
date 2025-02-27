@@ -25,20 +25,25 @@ export default function LoginForm({ setUserId, setNewUser }){
 
     return (
         <div className='forms'>
-            <h2>Login</h2>
+            {/* <h2>Login</h2> */}
             <form autoComplete='off' onSubmit={handleSubmit}>
-                <label htmlFor='email'>Email: </label>
-                <input onChange={(e) => setFormData({ ...formData, [e.target.name]: e.target.value })} type='email' id='email' name='email' placeholder='Email' />
-                <label htmlFor='password'>Password: </label>
-                <input
-                    onChange={(e) => setFormData({ ...formData, [e.target.name]: e.target.value })}
-                    type='password'
-                    id='password'
-                    name='password'
-                    placeholder='Password'
-                    minLength='6'
-                />
-                <button type='submit'>Log In</button>
+                <h2>Login</h2>
+                <div className='emailFeilds'>
+                    <label htmlFor='email'>Email: </label>
+                    <input onChange={(e) => setFormData({ ...formData, [e.target.name]: e.target.value })} type='email' id='email' name='email' placeholder='Email' />
+                </div>
+                <div className='pswdFeilds'>
+                    <label htmlFor='password'>Password: </label>
+                    <input
+                        onChange={(e) => setFormData({ ...formData, [e.target.name]: e.target.value })}
+                        type='password'
+                        id='password'
+                        name='password'
+                        placeholder='Password'
+                        minLength='6'
+                    />
+                </div>
+                <button className='loginBtn' type='submit'>Log In</button>
             </form>
             <p>Dont have an account? <button onClick={() => setNewUser(true)}>Sign Up</button></p>
         </div>

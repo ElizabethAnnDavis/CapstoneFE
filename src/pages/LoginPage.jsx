@@ -8,7 +8,7 @@ export default function LoginPage({ userId, setUserId }){
     const [newUser, setNewUser] = useState(false);
     return(
         <>
-            <LogoutBtn/>
+            {/* <LogoutBtn/> */}
             {newUser ? (
                 <SignUpForm setUserId={setUserId} setNewUser={setNewUser}/>
             ) : (
