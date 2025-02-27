@@ -85,9 +85,9 @@ Thanks to **Dylan Comeau** for providing the basis for the authorization code us
 **(20%) Project Structure, Standardization, and Convention**
 *  ✔   2%  --> Project is organized into appropriate files and directories, following best practices.
 *    
-*  -   2%  --> Project contains an appropriate level of comments.
+*  ✔   2%  --> Project contains an appropriate level of comments.
 *    
-*  -   5%  --> Project is pushed to GitHub, and contains a README file that documents the project, including an overall description of the project.
+*  ✔   5%  --> Project is pushed to GitHub, and contains a README file that documents the project, including an overall description of the project.
 *    
 *  ✔   2%  --> Standard naming conventions are used throughout the project.
 *    
